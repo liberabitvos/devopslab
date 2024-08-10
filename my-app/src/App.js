@@ -5,9 +5,16 @@ function App() {
   const [results, setResults] = useState([]);
 
   const handleSearch = async () => {
-    const response = await fetch(`/api/search?keyword=${keyword}`);
-    const data = await response.json();
-    setResults(data);
+    try {
+      const response = await fetch(`/api/search?keyword=${keyword}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setResults(data);
+    } catch (error) {
+      console.error("Error fetching the data: ", error);
+    }
   };
 
   return (
@@ -22,7 +29,9 @@ function App() {
       <button onClick={handleSearch}>Search</button>
       <ul>
         {results.map((result, index) => (
-          <li key={index}>{result.idxNm} - {result.clpr}</li>
+          <li key={index}>
+            <strong>{result.idxNm}</strong>: Close Price - {result.clpr}, Change - {result.vs}, Change Rate - {result.fltRt}%
+          </li>
         ))}
       </ul>
     </div>

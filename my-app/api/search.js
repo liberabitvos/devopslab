@@ -6,12 +6,13 @@ module.exports = async function (context, req) {
     if (!keyword) {
         context.res = {
             status: 400,
-            body: "Please pass a keyword on the query string or in the request body"
+            body: "Please provide a keyword in the query string or in the request body"
         };
         return;
     }
 
     try {
+        // SQL 데이터베이스 연결 설정
         const pool = await sql.connect({
             user: 'opr01',
             password: '1q2w#E$R',
@@ -22,10 +23,12 @@ module.exports = async function (context, req) {
             }
         });
 
+        // SQL 쿼리 실행
         const result = await pool.request()
             .input('keyword', sql.NVarChar, '%' + keyword + '%')
             .query('SELECT * FROM MarketIndex WHERE idxNm LIKE @keyword');
 
+        // 검색 결과 반환
         context.res = {
             status: 200,
             body: result.recordset
