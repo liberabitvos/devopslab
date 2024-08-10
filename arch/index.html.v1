@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My DevOps Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My DevOps Project</h1>
+        <p>This is a simple static web page hosted on Azure Static Web Apps.</p>
+    </header>
+    <section>
+        <h2>About This Project</h2>
+        <p>This project demonstrates how to use Azure Static Web Apps with GitHub Codespaces and includes DevOps practices.</p>
+    </section>
+    <section>
+        <h2>Features</h2>
+        <ul>
+            <li>Continuous Integration and Continuous Deployment (CI/CD)</li>
+            <li>Static Web Apps hosted on Azure</li>
+            <li>Integrated with GitHub Actions</li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 My DevOps Project. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+

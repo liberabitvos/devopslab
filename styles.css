@@ -1,0 +1,30 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.container h2 {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
