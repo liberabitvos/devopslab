@@ -1,0 +1,27 @@
+name: Update Market Index
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 매일 자정에 실행
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pymssql
+
+    - name: Fetch Market Index Data
+      run: |
+        python fetch_market_data.py
