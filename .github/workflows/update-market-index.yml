@@ -1,11 +1,11 @@
-name: Update Market Index
+name: Update Market Data
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 매일 자정에 실행
+    - cron: '*/1 * * * *'  # 매 1분마다 실행 (UTC 기준)
 
 jobs:
-  update-index:
+  update-data:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +22,5 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests pymssql
 
-    - name: Fetch Market Index Data
-      run: |
-        python fetch_market_data.py
+    - name: Run data update script
+      run: python fetch_market_data.py
